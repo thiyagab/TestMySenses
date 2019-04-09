@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">TestMySenses</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello">sample</string>
+    <string name="no_accelerometer">No accelerometer</string>
+    <string name="accuracy_unreliable">Unreliable accuracy</string>
+    <string name="accuracy_low">Low accuracy</string>
+    <string name="accuracy_medium">Medium accuracy</string>
+    <string name="accuracy_high">High accuracy</string>
+</resources>
