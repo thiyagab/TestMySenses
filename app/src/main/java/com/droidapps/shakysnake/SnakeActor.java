@@ -54,10 +54,12 @@ public class SnakeActor extends SimpleMovingActor {
 	public void drawSnakeLine(Canvas canvas,Paint paint){
 		Path path = new Path();
 		path.moveTo(getX(), getY());
-		for(Point point : tailPos){
-			path.lineTo(point.x, point.y);
+		for(int i=0;i<tailPos.size()-1;i++){
+			path.quadTo(tailPos.get(i).x, tailPos.get(i).y,tailPos.get(i+1).x,tailPos.get(i+1).y);
 
 		}
+//		path.rQuadTo(20, 5, 20, 10);
+//		path.rQuadTo(20, 5, -20, 10);
 		canvas.drawPath(path, paint);
 	}
 
@@ -80,13 +82,25 @@ public class SnakeActor extends SimpleMovingActor {
 	}
 
 	private void reboundOnScreenEnd() {
-		if(getPoint().y>=canvasHeight){
-			getPoint().y=0;
-		}
+//		if(getPoint().y>=canvasHeight){
+//			getPoint().y=0;
+//		}
 	}
 
 	public void offsetPathBasedOnAcceleration(){
-		getPoint().x+=offset;
+		if(offset>0 && offset <20)
+			getPoint().x+=10;
+		if(offset>20 && offset <50)
+			getPoint().x+=25;
+		if(offset>50)
+			getPoint().x+=50;
+
+		if(offset<0 && offset >-20)
+			getPoint().x+=-10;
+		if(offset<-20 && offset >-50)
+			getPoint().x+=-25;
+		if(offset<-50)
+			getPoint().x+=-50;
 	}
 
 
